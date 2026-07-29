@@ -1,0 +1,853 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automasensor | Precision Agriculture</title>
+    <meta name="description" content="A Automasensor fabrica placas, circuitos eletrônicos e equipamentos de alta precisão para máquinas agrícolas. Tecnologia para o futuro do campo.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/Ícone.png" type="image/png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#cc0000', // Vermelho forte da logo
+                            darkred: '#990000',
+                            black: '#111111',
+                            dark: '#1a1a1a',
+                            gray: '#f4f4f5',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'premium': '0 20px 40px -15px rgba(0,0,0,0.1)',
+                        'premium-red': '0 20px 40px -15px rgba(204,0,0,0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            overflow-x: hidden;
+        }
+
+        /* Premium Backgrounds */
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(17, 17, 17, 0.9) 0%, rgba(17, 17, 17, 0.6) 100%), url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .dark-tech-bg {
+            background-color: #111111;
+            background-image: radial-gradient(rgba(204, 0, 0, 0.15) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Scrolled Header */
+        .header-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+            .header-scrolled .nav-link {
+                color: #111111;
+            }
+
+            .header-scrolled .menu-icon {
+                color: #111111;
+            }
+
+        /* Modern Video Player Overlay Simulate */
+        .video-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(204, 0, 0, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7);
+            animation: pulse-red 2s infinite;
+            transition: all 0.3s ease;
+        }
+
+            .video-play-button:hover {
+                transform: translate(-50%, -50%) scale(1.1);
+                background: #cc0000;
+            }
+
+        @keyframes pulse-red {
+            0% {
+                box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 20px rgba(204, 0, 0, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(204, 0, 0, 0);
+            }
+        }
+
+        /* Scroll Reveal Animations (Less AI, More Pro) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+            .reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+            .reveal-left.active {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+            .reveal-right.active {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        .delay-100 {
+            transition-delay: 100ms;
+        }
+
+        .delay-200 {
+            transition-delay: 200ms;
+        }
+
+        .delay-300 {
+            transition-delay: 300ms;
+        }
+
+        /* Custom Bullet List */
+        .pro-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.75rem;
+            color: #4b5563;
+        }
+
+            .pro-list li::before {
+                content: '\f00c';
+                font-family: 'Font Awesome 6 Free';
+                font-weight: 900;
+                position: absolute;
+                left: 0;
+                top: 2px;
+                color: #cc0000;
+                font-size: 0.9rem;
+            }
+
+        .pro-list.dark li {
+            color: #d1d5db;
+        }
+
+        /* Image Masking */
+        .img-clip-right {
+            clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+        }
+
+        .img-clip-left {
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        /* Client Marquee */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent py-4 text-white">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center gap-2 shrink-0">
+                    <img src="images/Logo.png" alt="Automasensor" class="h-10 md:h-12 object-contain filter drop-shadow-md transition-all duration-300" id="nav-logo">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-6">
+                    <a href="#inicio" class="nav-link text-sm font-semibold hover:text-brand-red transition-colors uppercase tracking-wide">Início</a>
+
+                    <!-- Dropdown Soluções -->
+                    <div class="relative group">
+                        <button class="nav-link text-sm font-semibold hover:text-brand-red transition-colors inline-flex items-center gap-1 py-2 uppercase tracking-wide">
+                            Soluções <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i>
+                        </button>
+                        <div class="absolute left-0 top-full mt-0 hidden group-hover:block w-72 bg-white rounded-lg shadow-xl border-t-4 border-brand-red overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <a href="#autopropelidos" class="block px-5 py-3 text-sm font-medium text-gray-800 hover:bg-gray-50 hover:text-brand-red border-b border-gray-100">Autopropelidos</a>
+                            <a href="#plantadeiras" class="block px-5 py-3 text-sm font-medium text-gray-800 hover:bg-gray-50 hover:text-brand-red border-b border-gray-100">Plantadeiras</a>
+                            <a href="#pulverizacao" class="block px-5 py-3 text-sm font-medium text-gray-800 hover:bg-gray-50 hover:text-brand-red border-b border-gray-100">Pulverização</a>
+                            <a href="#correcao" class="block px-5 py-3 text-sm font-medium text-gray-800 hover:bg-gray-50 hover:text-brand-red border-b border-gray-100">Correção de Solo</a>
+                            <a href="#sementes" class="block px-5 py-3 text-sm font-medium text-gray-800 hover:bg-gray-50 hover:text-brand-red border-b border-gray-100">Aplicação de Sementes Miúdas</a>
+                            <a href="#pecuaria" class="block px-5 py-3 text-sm font-medium text-gray-800 hover:bg-gray-50 hover:text-brand-red border-b border-gray-100">Pecuária de Corte e Leite</a>
+                            <a href="#sensores" class="block px-5 py-3 text-sm font-medium text-gray-800 hover:bg-gray-50 hover:text-brand-red bg-gray-50/50">Sensores de Produto (Geral)</a>
+                        </div>
+                    </div>
+
+                    <a href="#desenvolvimento" class="nav-link text-sm font-semibold hover:text-brand-red transition-colors uppercase tracking-wide">Engenharia OEM</a>
+                    <a href="#clientes" class="nav-link text-sm font-semibold hover:text-brand-red transition-colors uppercase tracking-wide">Clientes</a>
+                    <a href="#sobre" class="nav-link text-sm font-semibold hover:text-brand-red transition-colors uppercase tracking-wide">A Empresa</a>
+                </nav>
+
+                <!-- CTA & Mobile Menu Toggle -->
+                <div class="flex items-center gap-4">
+                    <a href="#contato" class="hidden md:flex bg-brand-red hover:bg-brand-darkred text-white px-6 py-2.5 rounded font-bold transition-all duration-300 shadow-lg items-center gap-2">
+                        Fale Conosco <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                    <button id="mobile-menu-btn" class="menu-icon lg:hidden text-2xl focus:outline-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-gray-100 max-h-[85vh] overflow-y-auto">
+            <div class="flex flex-col px-6 py-6 gap-3">
+                <a href="#inicio" class="mobile-link text-brand-black font-bold text-lg border-b border-gray-100 pb-2">Início</a>
+
+                <div class="text-brand-black font-bold text-lg mt-2">Soluções</div>
+                <div class="flex flex-col gap-2 pl-4 border-l-2 border-brand-red mb-2">
+                    <a href="#autopropelidos" class="mobile-link text-gray-600 font-medium">Autopropelidos</a>
+                    <a href="#plantadeiras" class="mobile-link text-gray-600 font-medium">Plantadeiras</a>
+                    <a href="#pulverizacao" class="mobile-link text-gray-600 font-medium">Pulverização</a>
+                    <a href="#correcao" class="mobile-link text-gray-600 font-medium">Correção de Solo</a>
+                    <a href="#sementes" class="mobile-link text-gray-600 font-medium">Sementes Miúdas</a>
+                    <a href="#pecuaria" class="mobile-link text-gray-600 font-medium">Pecuária de Corte e Leite</a>
+                    <a href="#sensores" class="mobile-link text-gray-600 font-medium">Sensores de Produto</a>
+                </div>
+
+                <a href="#desenvolvimento" class="mobile-link text-brand-black font-bold text-lg border-b border-gray-100 pb-2 mt-2">Engenharia OEM</a>
+                <a href="#clientes" class="mobile-link text-brand-black font-bold text-lg border-b border-gray-100 pb-2">Clientes</a>
+                <a href="#sobre" class="mobile-link text-brand-black font-bold text-lg border-b border-gray-100 pb-2">A Empresa</a>
+
+                <a href="#contato" class="mobile-link bg-brand-red text-white text-center p-4 rounded font-bold mt-6 shadow-md">Solicitar Orçamento</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero-bg min-h-[100vh] flex items-center relative pt-20 overflow-hidden">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="max-w-2xl reveal-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm bg-brand-red/90 border-l-4 border-white text-white text-sm font-bold uppercase tracking-wider mb-6 shadow-lg">
+                        Tecnologia de Precisão Nacional
+                    </div>
+
+                    <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6">
+                        Inteligência Eletrônica para o <span class="text-brand-red">Agronegócio.</span>
+                    </h1>
+
+                    <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed font-light">
+                        Projetamos e fabricamos soluções eletrônicas embarcadas de altíssima performance. Do desenvolvimento do hardware (OEM) ao controle de máquinas no campo.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#solucoes" class="bg-brand-red hover:bg-brand-darkred text-white px-8 py-4 rounded font-bold text-center transition-all duration-300 shadow-premium-red">
+                            Conheça as Soluções
+                        </a>
+                        <a href="#desenvolvimento" class="bg-transparent border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded font-bold text-center transition-all duration-300">
+                            Desenvolvimento OEM
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video Player Illusion / Hero Graphic -->
+                <div class="hidden lg:block relative reveal-right delay-200 h-[500px]">
+                    <div class="absolute inset-0 border-2 border-brand-red/30 rounded-lg transform translate-x-4 translate-y-4"></div>
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1592982537447-6f296d05474c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center rounded-lg shadow-2xl overflow-hidden group">
+                        <div class="absolute inset-0 bg-brand-black/40 group-hover:bg-brand-black/20 transition-all duration-500"></div>
+                        <div class="video-play-button">
+                            <i class="fa-solid fa-play ml-1"></i>
+                        </div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <p class="text-white font-bold text-lg border-l-4 border-brand-red pl-3">Assista: O Futuro da Automação Agrícola</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#solucoes" class="text-white/50 hover:text-white transition-colors">
+                <i class="fa-solid fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="solucoes" class="pt-24 pb-12 bg-white">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 text-center max-w-4xl reveal">
+            <span class="text-brand-red font-bold uppercase tracking-widest text-sm mb-2 block">Portfólio Completo</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-brand-black mb-6">Soluções por Família de Aplicação</h2>
+            <div class="w-24 h-1 bg-brand-red mx-auto mb-6"></div>
+            <p class="text-gray-600 text-lg">Encontre a tecnologia eletrônica exata para a sua máquina. Nossos produtos são desenvolvidos com rigorosos padrões de engenharia para integração perfeita no campo.</p>
+        </div>
+    </section>
+
+    <!-- 1. Autopropelidos -->
+    <section id="autopropelidos" class="py-16 md:py-24 bg-brand-gray overflow-hidden">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full lg:w-1/2 relative reveal-left">
+                    <img src="https://images.unsplash.com/photo-1598449356475-b9f71db7d847?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Autopropelidos" class="rounded-xl shadow-premium img-clip-right w-full h-[400px] object-cover">
+                    <div class="absolute -bottom-6 -right-6 bg-brand-red text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-lg border-4 border-brand-gray">
+                        <i class="fa-solid fa-tractor"></i>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 reveal-right">
+                    <div class="inline-block bg-white text-brand-black px-4 py-1 rounded shadow-sm text-sm font-bold mb-4 border border-gray-200">01. Família</div>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Autopropelidos</h3>
+                    <p class="text-gray-600 mb-8 text-lg">Soluções eletrônicas robustas para colheitadeiras, pulverizadores, ensiladeiras, desensiladeiras e outras máquinas autopropelidas pesadas.</p>
+
+                    <ul class="pro-list grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                        <li>Ar-condicionado digital</li>
+                        <li>ECUs de controle e aquisição de dados</li>
+                        <li>Módulos de acionamento (blocos hidráulicos)</li>
+                        <li>Controle de motores (elétricos/hidráulicos)</li>
+                        <li>Sistemas de controle de tração</li>
+                        <li>Apoios de braço (Armrests) inteligentes</li>
+                        <li>Joysticks e comandos multifunção</li>
+                        <li>Telas touchscreen (7" e 10")</li>
+                        <li>Chicotes elétricos personalizados</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Plantadeiras -->
+    <section id="plantadeiras" class="py-16 md:py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
+                <div class="w-full lg:w-1/2 relative reveal-right">
+                    <img src="images/plantedeiras.jpg" alt="Plantadeiras" class="rounded-xl shadow-premium img-clip-left w-full h-[400px] object-cover">
+                    <div class="absolute -bottom-6 -left-6 bg-brand-red text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-lg border-4 border-white">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 reveal-left">
+                    <div class="inline-block bg-brand-gray text-brand-black px-4 py-1 rounded shadow-sm text-sm font-bold mb-4 border border-gray-200">02. Família</div>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Plantadeiras</h3>
+                    <p class="text-gray-600 mb-8 text-lg">Sistemas completos para automação, controle e monitoramento minucioso das operações de plantio em larga escala.</p>
+
+                    <ul class="pro-list grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                        <li>Controle de sementes (taxa fixa/variável)</li>
+                        <li>Controle de fertilizantes (taxa fixa/variável)</li>
+                        <li>Monitoramento de sementes e fertilizantes</li>
+                        <li>Motores elétricos para dosagem</li>
+                        <li>Sensores de sementes</li>
+                        <li>Sensores de fertilizantes</li>
+                        <li>ECUs de controle central</li>
+                        <li>Módulos de potência</li>
+                        <li>Telas de monitoramento e programação</li>
+                        <li>Chicotes elétricos personalizados</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Pulverização -->
+    <section id="pulverizacao" class="py-16 md:py-24 bg-brand-gray overflow-hidden">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full lg:w-1/2 relative reveal-left">
+                    <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Pulverização" class="rounded-xl shadow-premium img-clip-right w-full h-[400px] object-cover">
+                    <div class="absolute -bottom-6 -right-6 bg-brand-red text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-lg border-4 border-brand-gray">
+                        <i class="fa-solid fa-spray-can-sparkles"></i>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 reveal-right">
+                    <div class="inline-block bg-white text-brand-black px-4 py-1 rounded shadow-sm text-sm font-bold mb-4 border border-gray-200">03. Família</div>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Pulverização</h3>
+                    <p class="text-gray-600 mb-8 text-lg">Soluções para controle preciso da aplicação, mitigação de desperdícios e monitoramento em tempo real do sistema de pulverização.</p>
+
+                    <ul class="pro-list grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                        <li>Controladores (taxa fixa)</li>
+                        <li>Controladores (taxa variável)</li>
+                        <li>Controle automático de seções</li>
+                        <li>Fluxômetros de alta precisão</li>
+                        <li>Sensores de pressão</li>
+                        <li>Sensores de nível</li>
+                        <li>ECUs de controle dedicadas</li>
+                        <li>Telas de monitoramento integradas</li>
+                        <li>Chicotes elétricos específicos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Correção de solo -->
+    <section id="correcao" class="py-16 md:py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
+                <div class="w-full lg:w-1/2 relative reveal-right">
+                    <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Correção de Solo" class="rounded-xl shadow-premium img-clip-left w-full h-[400px] object-cover">
+                    <div class="absolute -bottom-6 -left-6 bg-brand-red text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-lg border-4 border-white">
+                        <i class="fa-solid fa-mound"></i>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 reveal-left">
+                    <div class="inline-block bg-brand-gray text-brand-black px-4 py-1 rounded shadow-sm text-sm font-bold mb-4 border border-gray-200">04. Família</div>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Correção de Solo</h3>
+                    <p class="text-gray-600 mb-8 text-lg">Tecnologias embarcadas para a aplicação inteligente e rigorosamente controlada de fertilizantes, corretivos e insumos.</p>
+
+                    <ul class="pro-list grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                        <li>Controle em taxa fixa e variável</li>
+                        <li>Monitoramento da aplicação</li>
+                        <li>Motores elétricos (acionamento dosadores)</li>
+                        <li>Sensores de rotação</li>
+                        <li>Sensores de fluxo de fertilizantes</li>
+                        <li>ECUs de controle avançado</li>
+                        <li>Módulos de potência</li>
+                        <li>Telas de programação</li>
+                        <li>Chicotes elétricos personalizados</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Sensores de Produto -->
+    <section id="sensores" class="py-16 md:py-24 bg-brand-gray overflow-hidden">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full lg:w-1/2 relative reveal-left">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sensores Eletrônicos" class="rounded-xl shadow-premium img-clip-right w-full h-[400px] object-cover">
+                    <div class="absolute -bottom-6 -right-6 bg-brand-red text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-lg border-4 border-brand-gray">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 reveal-right">
+                    <div class="inline-block bg-white text-brand-black px-4 py-1 rounded shadow-sm text-sm font-bold mb-4 border border-gray-200">05. Família</div>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Sensores de Produto</h3>
+                    <p class="text-gray-600 mb-8 text-lg">Nossa linha completa e especializada de sensores para garantir a aquisição de dados precisos em qualquer implemento agrícola.</p>
+
+                    <ul class="pro-list grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                        <li>Sensores de levante e posição</li>
+                        <li>Sensores de velocidade (GPS)</li>
+                        <li>Sensores de rotação indutivos/efeito hall</li>
+                        <li>Sensores de pressão</li>
+                        <li>Sensores de fluxo de fluídos</li>
+                        <li>Sensores óticos de sementes</li>
+                        <li>Sensores capacitivos/indutivos (fertilizantes)</li>
+                        <li>Sensores de nível de tanques</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Sementes Miúdas -->
+    <section id="sementes" class="py-16 md:py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
+                <div class="w-full lg:w-1/2 relative reveal-right">
+                    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sementes Miúdas" class="rounded-xl shadow-premium img-clip-left w-full h-[400px] object-cover">
+                    <div class="absolute -bottom-6 -left-6 bg-brand-red text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-lg border-4 border-white">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 reveal-left">
+                    <div class="inline-block bg-brand-gray text-brand-black px-4 py-1 rounded shadow-sm text-sm font-bold mb-4 border border-gray-200">06. Família</div>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Aplicação de Sementes Miúdas</h3>
+                    <p class="text-gray-600 mb-8 text-lg">Soluções exclusivas para plantio de pastagens, culturas de cobertura, consórcios agrícolas e distribuição delicada.</p>
+
+                    <ul class="pro-list grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                        <li>Controle em taxa fixa e variável</li>
+                        <li>Monitoramento da aplicação</li>
+                        <li>Motores elétricos p/ acionamento de dosadores</li>
+                        <li>Sensores de fluxo (sementes)</li>
+                        <li>Sensores (fertilizantes)</li>
+                        <li>ECUs de controle dedicadas</li>
+                        <li>Módulos de potência</li>
+                        <li>Telas de programação intuitivas</li>
+                        <li>Chicotes elétricos customizados</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Pecuária (Novo Pedido do Cliente) -->
+    <section id="pecuaria" class="py-16 md:py-24 bg-brand-dark text-white overflow-hidden relative">
+        <div class="absolute inset-0 bg-brand-black opacity-90 z-0"></div>
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544385561-572fa82cb535?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-20 z-0 mix-blend-luminosity"></div>
+
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full lg:w-1/2 reveal-left">
+                    <div class="inline-block bg-brand-red text-white px-4 py-1 rounded shadow-sm text-sm font-bold mb-4">Novo Setor</div>
+                    <h3 class="text-3xl md:text-4xl font-extrabold mb-4">Pecuária de Corte e Leite</h3>
+                    <p class="text-gray-300 mb-8 text-lg">A Automasensor expande sua excelência tecnológica para o controle e automação nas fazendas pecuaristas, trazendo inovação para confinamentos, ordenhas e nutrição animal.</p>
+
+                    <ul class="pro-list dark grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                        <li>Automação de misturadores de ração</li>
+                        <li>Sensores de pesagem e fluxo</li>
+                        <li>Controle eletrônico de distribuição</li>
+                        <li>Sistemas para vagões forrageiros</li>
+                        <li>ECUs para monitoramento de rotina</li>
+                        <li>Módulos de acionamento pesados</li>
+                    </ul>
+                </div>
+                <div class="w-full lg:w-1/2 relative reveal-right">
+                    <!-- Video Embed Illusion -->
+                    <div class="relative rounded-xl overflow-hidden shadow-[0_0_40px_rgba(204,0,0,0.2)] border border-brand-red/30">
+                        <img src="https://images.unsplash.com/photo-1594732832278-abd644401426?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Pecuária Tecnológica" class="w-full h-[350px] object-cover">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <div class="video-play-button">
+                            <i class="fa-solid fa-play ml-1"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="desenvolvimento" class="py-24 bg-white relative overflow-hidden border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 relative reveal-left">
+                    <!-- Circuit Illustration placeholder -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-brand-gray p-6 rounded-lg border border-gray-200">
+                            <i class="fa-solid fa-layer-group text-3xl text-brand-red mb-4"></i>
+                            <h4 class="font-bold text-brand-black mb-2">Projeto de Hardware (PCB)</h4>
+                            <p class="text-sm text-gray-600">Desenvolvimento de placas de circuito impresso multicamadas, resistentes a intempéries e vibrações.</p>
+                        </div>
+                        <div class="bg-brand-gray p-6 rounded-lg border border-gray-200 transform translate-y-8">
+                            <i class="fa-solid fa-code text-3xl text-brand-red mb-4"></i>
+                            <h4 class="font-bold text-brand-black mb-2">Software Embarcado</h4>
+                            <p class="text-sm text-gray-600">Programação de microcontroladores em C/C++, lógica de controle ISOBUS e interfaces IHM.</p>
+                        </div>
+                        <div class="bg-brand-gray p-6 rounded-lg border border-gray-200">
+                            <i class="fa-solid fa-network-wired text-3xl text-brand-red mb-4"></i>
+                            <h4 class="font-bold text-brand-black mb-2">Chicotes Elétricos</h4>
+                            <p class="text-sm text-gray-600">Manufatura de cabeamento selado com conectores automotivos de grau IP67/IP68.</p>
+                        </div>
+                        <div class="bg-brand-gray p-6 rounded-lg border border-gray-200 transform translate-y-8">
+                            <i class="fa-solid fa-check-double text-3xl text-brand-red mb-4"></i>
+                            <h4 class="font-bold text-brand-black mb-2">Testes e Validação</h4>
+                            <p class="text-sm text-gray-600">Burn-in, testes de temperatura e validação em campo antes da produção em escala.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 reveal-right">
+                    <span class="text-brand-red font-bold uppercase tracking-widest text-sm mb-2 block">Parceria Estratégica</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-brand-black mb-6 leading-tight">Desenvolvimento Personalizado <span class="text-brand-red">(OEM)</span></h2>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        Precisa de um projeto eletrônico exclusivo para a sua linha de montagem? Nossa equipe de engenharia atua como o seu departamento de tecnologia estendido.
+                    </p>
+                    <p class="text-gray-600 text-lg mb-10 leading-relaxed">
+                        Entregamos uma solução <strong>"Turn-Key"</strong> completa para fabricantes de máquinas (OEMs), assumindo desde o rascunho da ideia, criação do protótipo, até a fabricação seriada das placas e componentes na nossa linha de montagem no Brasil.
+                    </p>
+                    <a href="#contato" class="inline-flex items-center gap-2 bg-brand-black text-white hover:bg-brand-red px-8 py-4 rounded font-bold transition-colors duration-300 shadow-lg">
+                        Agendar Reunião com a Engenharia <i class="fa-solid fa-gear"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="clientes" class="py-20 bg-brand-gray border-b border-gray-200">
+        <div class="container mx-auto px-4 text-center reveal mb-10">
+            <h2 class="text-3xl font-extrabold text-brand-black mb-4">Players que confiam na nossa Tecnologia</h2>
+            <p class="text-gray-600">Fornecemos soluções embarcadas para as principais montadoras e grandes produtores do Brasil.</p>
+        </div>
+
+        <!-- Marquee de Logos (Espaços reservados para inserção posterior) -->
+        <div class="marquee-container py-8 bg-white border-y border-gray-200 reveal delay-200">
+            <div class="marquee-content flex items-center gap-16 px-8">
+                <!-- Logos Placeholder (Duplicados para efeito infinito) -->
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">KUHN</div>
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">SÃO JOSÉ INDUSTRIAL</div>
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">HORSCH</div>
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">RAIZON AGRITECH</div>
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">SEMEATO</div>
+
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">MARINI</div>
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">CIMISA</div>
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">AGROSS</div>
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">ZS MÁQUINAS</div>
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">USIMILK</div>
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">HARMAQ</div>
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">AGROCAMPO</div>
+
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">AGRO FIELD</div>
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">TECHHORSE</div>
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">TEMU SMART FARMING</div>
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">TAALEX</div>
+                <div class="font-black text-3xl text-gray-300 uppercase tracking-tighter">NIKOLA 369</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="py-24 bg-white relative">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="w-full lg:w-1/2 relative reveal-left">
+                    <div class="absolute inset-0 bg-brand-red rounded transform -translate-x-4 translate-y-4"></div>
+                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profissional em eletrônica" class="rounded shadow-xl relative z-10 w-full object-cover h-[450px]">
+                </div>
+                <div class="w-full lg:w-1/2 reveal-right">
+                    <span class="text-brand-red font-bold uppercase tracking-widest text-sm mb-2 block">A Automasensor</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-brand-black mb-6">Inovação e Robustez no Agronegócio</h2>
+                    <div class="w-20 h-1 bg-brand-red mb-6"></div>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
+                        Fundada com a visão estratégica de <strong class="text-brand-black">Ricardo Kadota</strong>, a Automasensor resolve o maior desafio do agronegócio moderno: a ponte entre o maquinário pesado (mecânica/hidráulica) e a inteligência de dados.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Nossas placas e módulos são desenhados no Brasil para aguentar as condições mais extremas do clima e solo brasileiros (poeira, vibração intensa, calor e umidade). Oferecemos suporte rápido, reposição nacional e tecnologia que bate de frente com os maiores players globais.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="py-24 bg-brand-dark text-white relative">
+        <div class="dark-tech-bg absolute inset-0 z-0"></div>
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+            <div class="max-w-6xl mx-auto bg-brand-black rounded-lg shadow-2xl overflow-hidden flex flex-col md:flex-row border border-gray-800 reveal">
+
+                <div class="w-full md:w-2/5 bg-brand-red p-10 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute inset-0 bg-black/10"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-extrabold mb-2">Fale Conosco</h3>
+                        <p class="text-white/80 mb-8">Comercial, Suporte e Engenharia.</p>
+
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded bg-black/20 flex items-center justify-center shrink-0 border border-white/20">
+                                    <i class="fa-brands fa-whatsapp text-2xl text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-white/70 uppercase tracking-wider font-bold">Atendimento Rápido</p>
+                                    <p class="font-medium text-xl">+55 (54) 99173-9188</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded bg-black/20 flex items-center justify-center shrink-0 border border-white/20">
+                                    <i class="fa-regular fa-envelope text-2xl text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-white/70 uppercase tracking-wider font-bold">E-mail Corporativo</p>
+                                    <p class="font-medium text-lg">contato@automasensor.com.br</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-3/5 p-10 bg-brand-black">
+                    <form action="#" method="POST" class="space-y-6" onsubmit="event.preventDefault(); alert('Formulário configurado! (Integração com Web3Forms/Formspree pendente no backend).');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Nome Completo</label>
+                                <input type="text" class="w-full px-4 py-3 bg-gray-900 rounded border border-gray-700 focus:ring-2 focus:ring-brand-red focus:border-transparent outline-none text-white transition-all" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Telefone / WhatsApp</label>
+                                <input type="tel" class="w-full px-4 py-3 bg-gray-900 rounded border border-gray-700 focus:ring-2 focus:ring-brand-red focus:border-transparent outline-none text-white transition-all" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Área de Interesse</label>
+                            <select class="w-full px-4 py-3 bg-gray-900 rounded border border-gray-700 focus:ring-2 focus:ring-brand-red focus:border-transparent outline-none text-white transition-all">
+                                <option>Cotação de Soluções</option>
+                                <option>Desenvolvimento OEM (Montadoras)</option>
+                                <option>Suporte Técnico</option>
+                                <option>Outros assuntos</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Mensagem</label>
+                            <textarea rows="4" class="w-full px-4 py-3 bg-gray-900 rounded border border-gray-700 focus:ring-2 focus:ring-brand-red focus:border-transparent outline-none text-white resize-none transition-all" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-red hover:bg-brand-darkred text-white font-bold py-4 rounded transition-colors flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(204,0,0,0.3)] hover:shadow-[0_0_30px_rgba(204,0,0,0.5)]">
+                            Enviar Solicitação <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0a0a0a] text-gray-400 py-12 border-t border-gray-900">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <!-- Fundo branco adicionado à logo no rodapé para dar contraste -->
+                <div class="bg-white px-4 py-2 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <img src="images/Logo.png" alt="Automasensor" class="h-10 md:h-12 object-contain hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+            <p class="text-sm text-center md:text-center">&copy; 2026 Automasensor. Todos os direitos reservados. <br />Desenvolvido por J. Caetano</p>
+            <div class="flex gap-4">
+                <a href="https://www.instagram.com/automasensor/" target="_blank" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5554991739188?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20o%20departamento%20comercial%20da%20Automasensor." target="_blank" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:bg-[#20b858] hover:scale-110 transition-all duration-300 group">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+
+        <!-- Tooltip (Balão de texto) -->
+        <span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-4 py-2 bg-brand-black text-white text-sm font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-lg pointer-events-none">
+            Fale com nosso Comercial
+            <!-- Setinha do balão -->
+            <span class="absolute top-1/2 -right-1.5 -translate-y-1/2 border-4 border-transparent border-l-brand-black"></span>
+        </span>
+    </a>
+
+    <script>
+        // Menu Mobile & Nav Scroll Effect
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const navbar = document.getElementById('navbar');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-xmark');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const logo = document.getElementById('nav-logo');
+
+            if (window.scrollY > 50) {
+                navbar.classList.add('header-scrolled');
+                navbar.classList.remove('text-white', 'py-4');
+                navbar.classList.add('py-2');
+
+                // Reduz a logo quando rola a tela
+                if (logo) {
+                    logo.classList.remove('lg:h-[90px]', 'md:h-24', 'sm:h-20', 'h-16');
+                    logo.classList.add('h-10', 'md:h-12');
+                }
+            } else {
+                navbar.classList.remove('header-scrolled');
+                navbar.classList.add('text-white', 'py-4');
+                navbar.classList.remove('py-2');
+
+                // Aumenta a logo quando está no topo
+                if (logo) {
+                    logo.classList.add('lg:h-[90px]', 'md:h-24', 'sm:h-20', 'h-16');
+                    logo.classList.remove('h-10', 'md:h-12');
+                }
+            }
+        });
+
+        // Scroll Reveal Animation Logic (Intersection Observer)
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Animates only once
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+
+            // Ativando o Efeito 3D Tilt super realista nas imagens
+            if (typeof VanillaTilt !== 'undefined') {
+                VanillaTilt.init(document.querySelectorAll(".shadow-premium, .tilt-element"), {
+                    max: 8,             // Grau de inclinação
+                    speed: 400,         // Velocidade da animação
+                    glare: true,        // Efeito de reflexo de luz
+                    "max-glare": 0.25,  // Intensidade da luz
+                });
+            }
+        });
+    </script>
+</body>
+</html>

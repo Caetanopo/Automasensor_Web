@@ -40,16 +40,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        /* RESOLUÇÃO DA RESPONSIVIDADE (TRAVA HORIZONTAL) */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #ffffff;
             color: #333333;
-            overflow-x: hidden;
         }
 
         /* Premium Backgrounds */
         .hero-bg {
-            background-image: linear-gradient(to right, rgba(17, 17, 17, 0.9) 0%, rgba(17, 17, 17, 0.6) 100%), url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-image: linear-gradient(to right, rgba(17, 17, 17, 0.9) 0%, rgba(17, 17, 17, 0.6) 100%), url('images/HOME.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -199,12 +205,17 @@
             overflow: hidden;
             white-space: nowrap;
             position: relative;
+            width: 100%;
         }
 
         .marquee-content {
-            display: inline-block;
-            animation: marquee 30s linear infinite;
+            display: inline-flex;
+            animation: marquee 35s linear infinite;
         }
+
+            .marquee-content:hover {
+                animation-play-state: paused;
+            }
 
         @keyframes marquee {
             0% {
@@ -221,7 +232,7 @@
 <body class="antialiased">
 
     <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent py-4 text-white">
-        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between">
 
                 <!-- Logo -->
@@ -279,7 +290,7 @@
                     <a href="#correcao" class="mobile-link text-gray-600 font-medium">Correção de Solo</a>
                     <a href="#sementes" class="mobile-link text-gray-600 font-medium">Sementes Miúdas</a>
                     <a href="#pecuaria" class="mobile-link text-gray-600 font-medium">Pecuária de Corte e Leite</a>
-                    <a href="#sensores" class="mobile-link text-gray-600 font-medium">Sensores</a>
+                    <a href="#sensores" class="mobile-link text-gray-600 font-medium">Sensores de Produto</a>
                 </div>
 
                 <a href="#desenvolvimento" class="mobile-link text-brand-black font-bold text-lg border-b border-gray-100 pb-2 mt-2">Engenharia OEM</a>
@@ -291,27 +302,28 @@
         </div>
     </header>
 
-    <section id="inicio" class="hero-bg min-h-[100vh] flex items-center relative pt-20 overflow-hidden">
-        <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+    <section id="inicio" class="hero-bg min-h-[100vh] flex items-center relative pt-20 overflow-hidden w-full">
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="max-w-2xl reveal-left">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm bg-brand-red/90 border-l-4 border-white text-white text-sm font-bold uppercase tracking-wider mb-6 shadow-lg">
+                <div class="max-w-2xl reveal-left w-full overflow-hidden">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-brand-red/90 border-l-4 border-white text-white text-xs sm:text-sm font-bold uppercase tracking-wider mb-6 shadow-lg">
                         Tecnologia de Precisão Nacional
                     </div>
 
-                    <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6">
+                    <!-- Tamanhos de fonte ajustados para mobile não quebrar -->
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight md:leading-[1.1] mb-6 break-words">
                         Inteligência Eletrônica para o <span class="text-brand-red">Agronegócio.</span>
                     </h1>
 
-                    <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed font-light">
+                    <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-10 leading-relaxed font-light">
                         Projetamos e fabricamos soluções eletrônicas embarcadas de altíssima performance. Do desenvolvimento do hardware (OEM) ao controle de máquinas no campo.
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#solucoes" class="bg-brand-red hover:bg-brand-darkred text-white px-8 py-4 rounded font-bold text-center transition-all duration-300 shadow-premium-red">
+                        <a href="#solucoes" class="bg-brand-red hover:bg-brand-darkred text-white px-6 md:px-8 py-3.5 md:py-4 rounded font-bold text-center transition-all duration-300 shadow-premium-red text-sm md:text-base">
                             Conheça as Soluções
                         </a>
-                        <a href="#desenvolvimento" class="bg-transparent border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded font-bold text-center transition-all duration-300">
+                        <a href="#desenvolvimento" class="bg-transparent border border-white/30 hover:bg-white/10 text-white px-6 md:px-8 py-3.5 md:py-4 rounded font-bold text-center transition-all duration-300 text-sm md:text-base">
                             Desenvolvimento OEM
                         </a>
                     </div>
@@ -319,14 +331,10 @@
 
                 <!-- Video Player Illusion / Hero Graphic -->
                 <div class="hidden lg:block relative reveal-right delay-200 h-[500px]">
-                    <div class="absolute inset-0 border-2 border-brand-red/30 rounded-lg transform translate-x-4 translate-y-4"></div>
-                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1592982537447-6f296d05474c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center rounded-lg shadow-2xl overflow-hidden group">
+                    <div class="absolute inset-0 bg-[url('images/Tela.png')] bg-cover bg-center rounded-lg shadow-2xl overflow-hidden group">
                         <div class="absolute inset-0 bg-brand-black/40 group-hover:bg-brand-black/20 transition-all duration-500"></div>
-                        <div class="video-play-button">
-                            <i class="fa-solid fa-play ml-1"></i>
-                        </div>
                         <div class="absolute bottom-6 left-6 right-6">
-                            <p class="text-white font-bold text-lg border-l-4 border-brand-red pl-3">Assista: O Futuro da Automação Agrícola</p>
+                            <p class="text-white font-bold text-lg border-l-4 border-brand-red pl-3">O Futuro da Automação Agrícola</p>
                         </div>
                     </div>
                 </div>
@@ -342,30 +350,30 @@
     </section>
 
     <section id="solucoes" class="pt-24 pb-12 bg-white">
-        <div class="container mx-auto px-4 md:px-6 lg:px-8 text-center max-w-4xl reveal">
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8 text-center max-w-4xl reveal">
             <span class="text-brand-red font-bold uppercase tracking-widest text-sm mb-2 block">Portfólio Completo</span>
-            <h2 class="text-4xl md:text-5xl font-extrabold text-brand-black mb-6">Soluções por Família de Aplicação</h2>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-black mb-6">Soluções por Família de Aplicação</h2>
             <div class="w-24 h-1 bg-brand-red mx-auto mb-6"></div>
-            <p class="text-gray-600 text-lg">Encontre a tecnologia eletrônica exata para a sua máquina. Nossos produtos são desenvolvidos com rigorosos padrões de engenharia para integração perfeita no campo.</p>
+            <p class="text-gray-600 text-base sm:text-lg">Encontre a tecnologia eletrônica exata para a sua máquina. Nossos produtos são desenvolvidos com rigorosos padrões de engenharia para integração perfeita no campo.</p>
         </div>
     </section>
 
     <!-- 1. Autopropelidos -->
-    <section id="autopropelidos" class="py-16 md:py-24 bg-brand-gray overflow-hidden">
-        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <section id="autopropelidos" class="py-12 sm:py-16 md:py-24 bg-brand-gray overflow-hidden">
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                 <div class="w-full lg:w-1/2 relative reveal-left">
-                    <img src="https://images.unsplash.com/photo-1598449356475-b9f71db7d847?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Autopropelidos" class="rounded-xl shadow-premium img-clip-right w-full h-[400px] object-cover">
-                    <div class="absolute -bottom-6 -right-6 bg-brand-red text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-lg border-4 border-brand-gray">
+                    <img src="images/Autopropelidos.png" alt="Autopropelidos" class="rounded-xl shadow-premium img-clip-right w-full h-[300px] md:h-[400px] object-cover">
+                    <div class="absolute -bottom-6 -right-6 bg-brand-red text-white w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-3xl md:text-4xl shadow-lg border-4 border-brand-gray">
                         <i class="fa-solid fa-tractor"></i>
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2 reveal-right">
                     <div class="inline-block bg-white text-brand-black px-4 py-1 rounded shadow-sm text-sm font-bold mb-4 border border-gray-200">01. Família</div>
-                    <h3 class="text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Autopropelidos</h3>
-                    <p class="text-gray-600 mb-8 text-lg">Soluções eletrônicas robustas para colheitadeiras, pulverizadores, ensiladeiras, desensiladeiras e outras máquinas autopropelidas pesadas.</p>
+                    <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Autopropelidos</h3>
+                    <p class="text-gray-600 mb-8 text-base md:text-lg">Soluções eletrônicas robustas para colheitadeiras, pulverizadores, ensiladeiras, desensiladeiras e outras máquinas autopropelidas pesadas.</p>
 
-                    <ul class="pro-list grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                    <ul class="pro-list grid grid-cols-1 sm:grid-cols-2 gap-x-4">
                         <li>Ar-condicionado digital</li>
                         <li>ECUs de controle e aquisição de dados</li>
                         <li>Módulos de acionamento (blocos hidráulicos)</li>
@@ -382,21 +390,21 @@
     </section>
 
     <!-- 2. Plantadeiras -->
-    <section id="plantadeiras" class="py-16 md:py-24 bg-white overflow-hidden">
-        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <section id="plantadeiras" class="py-12 sm:py-16 md:py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
                 <div class="w-full lg:w-1/2 relative reveal-right">
-                    <img src="images/plantedeiras.jpg" alt="Plantadeiras" class="rounded-xl shadow-premium img-clip-left w-full h-[400px] object-cover">
-                    <div class="absolute -bottom-6 -left-6 bg-brand-red text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-lg border-4 border-white">
+                    <img src="images/Plantadeiras.png" alt="Plantadeiras" class="rounded-xl shadow-premium img-clip-left w-full h-[300px] md:h-[400px] object-cover" onerror="this.src='https://images.unsplash.com/photo-1627918451877-62cc309b60b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+                    <div class="absolute -bottom-6 -left-6 bg-brand-red text-white w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-3xl md:text-4xl shadow-lg border-4 border-white">
                         <i class="fa-solid fa-seedling"></i>
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2 reveal-left">
                     <div class="inline-block bg-brand-gray text-brand-black px-4 py-1 rounded shadow-sm text-sm font-bold mb-4 border border-gray-200">02. Família</div>
-                    <h3 class="text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Plantadeiras</h3>
-                    <p class="text-gray-600 mb-8 text-lg">Sistemas completos para automação, controle e monitoramento minucioso das operações de plantio em larga escala.</p>
+                    <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Plantadeiras</h3>
+                    <p class="text-gray-600 mb-8 text-base md:text-lg">Sistemas completos para automação, controle e monitoramento minucioso das operações de plantio em larga escala.</p>
 
-                    <ul class="pro-list grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                    <ul class="pro-list grid grid-cols-1 sm:grid-cols-2 gap-x-4">
                         <li>Controle de sementes (taxa fixa/variável)</li>
                         <li>Controle de fertilizantes (taxa fixa/variável)</li>
                         <li>Monitoramento de sementes e fertilizantes</li>
@@ -414,21 +422,21 @@
     </section>
 
     <!-- 3. Pulverização -->
-    <section id="pulverizacao" class="py-16 md:py-24 bg-brand-gray overflow-hidden">
-        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <section id="pulverizacao" class="py-12 sm:py-16 md:py-24 bg-brand-gray overflow-hidden">
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                 <div class="w-full lg:w-1/2 relative reveal-left">
-                    <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Pulverização" class="rounded-xl shadow-premium img-clip-right w-full h-[400px] object-cover">
-                    <div class="absolute -bottom-6 -right-6 bg-brand-red text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-lg border-4 border-brand-gray">
+                    <img src="images/pulverizador.png" alt="Pulverização" class="rounded-xl shadow-premium img-clip-right w-full h-[300px] md:h-[400px] object-cover">
+                    <div class="absolute -bottom-6 -right-6 bg-brand-red text-white w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-3xl md:text-4xl shadow-lg border-4 border-brand-gray">
                         <i class="fa-solid fa-spray-can-sparkles"></i>
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2 reveal-right">
                     <div class="inline-block bg-white text-brand-black px-4 py-1 rounded shadow-sm text-sm font-bold mb-4 border border-gray-200">03. Família</div>
-                    <h3 class="text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Pulverização</h3>
-                    <p class="text-gray-600 mb-8 text-lg">Soluções para controle preciso da aplicação, mitigação de desperdícios e monitoramento em tempo real do sistema de pulverização.</p>
+                    <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Pulverização</h3>
+                    <p class="text-gray-600 mb-8 text-base md:text-lg">Soluções para controle preciso da aplicação, mitigação de desperdícios e monitoramento em tempo real do sistema de pulverização.</p>
 
-                    <ul class="pro-list grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                    <ul class="pro-list grid grid-cols-1 sm:grid-cols-2 gap-x-4">
                         <li>Controladores (taxa fixa)</li>
                         <li>Controladores (taxa variável)</li>
                         <li>Controle automático de seções</li>
@@ -445,21 +453,21 @@
     </section>
 
     <!-- 4. Correção de solo -->
-    <section id="correcao" class="py-16 md:py-24 bg-white overflow-hidden">
-        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <section id="correcao" class="py-12 sm:py-16 md:py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
                 <div class="w-full lg:w-1/2 relative reveal-right">
-                    <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Correção de Solo" class="rounded-xl shadow-premium img-clip-left w-full h-[400px] object-cover">
-                    <div class="absolute -bottom-6 -left-6 bg-brand-red text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-lg border-4 border-white">
+                    <img src="images/Correção de solo.png" alt="Correção de Solo" class="rounded-xl shadow-premium img-clip-left w-full h-[300px] md:h-[400px] object-cover">
+                    <div class="absolute -bottom-6 -left-6 bg-brand-red text-white w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-3xl md:text-4xl shadow-lg border-4 border-white">
                         <i class="fa-solid fa-mound"></i>
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2 reveal-left">
                     <div class="inline-block bg-brand-gray text-brand-black px-4 py-1 rounded shadow-sm text-sm font-bold mb-4 border border-gray-200">04. Família</div>
-                    <h3 class="text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Correção de Solo</h3>
-                    <p class="text-gray-600 mb-8 text-lg">Tecnologias embarcadas para a aplicação inteligente e rigorosamente controlada de fertilizantes, corretivos e insumos.</p>
+                    <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Correção de Solo</h3>
+                    <p class="text-gray-600 mb-8 text-base md:text-lg">Tecnologias embarcadas para a aplicação inteligente e rigorosamente controlada de fertilizantes, corretivos e insumos.</p>
 
-                    <ul class="pro-list grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                    <ul class="pro-list grid grid-cols-1 sm:grid-cols-2 gap-x-4">
                         <li>Controle em taxa fixa e variável</li>
                         <li>Monitoramento da aplicação</li>
                         <li>Motores elétricos (acionamento dosadores)</li>
@@ -476,21 +484,21 @@
     </section>
 
     <!-- 5. Sensores -->
-    <section id="sensores" class="py-16 md:py-24 bg-brand-gray overflow-hidden">
-        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <section id="sensores" class="py-12 sm:py-16 md:py-24 bg-brand-gray overflow-hidden">
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                 <div class="w-full lg:w-1/2 relative reveal-left">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sensores Eletrônicos" class="rounded-xl shadow-premium img-clip-right w-full h-[400px] object-cover">
-                    <div class="absolute -bottom-6 -right-6 bg-brand-red text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-lg border-4 border-brand-gray">
+                    <img src="images/Sensores.png" alt="Sensores Eletrônicos" class="rounded-xl shadow-premium img-clip-right w-full h-[300px] md:h-[400px] object-cover">
+                    <div class="absolute -bottom-6 -right-6 bg-brand-red text-white w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-3xl md:text-4xl shadow-lg border-4 border-brand-gray">
                         <i class="fa-solid fa-microchip"></i>
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2 reveal-right">
                     <div class="inline-block bg-white text-brand-black px-4 py-1 rounded shadow-sm text-sm font-bold mb-4 border border-gray-200">05. Família</div>
-                    <h3 class="text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Sensores</h3>
-                    <p class="text-gray-600 mb-8 text-lg">Nossa linha completa e especializada de sensores para garantir a aquisição de dados precisos em qualquer implemento agrícola.</p>
+                    <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Sensores</h3>
+                    <p class="text-gray-600 mb-8 text-base md:text-lg">Nossa linha completa e especializada de sensores para garantir a aquisição de dados precisos em qualquer implemento agrícola.</p>
 
-                    <ul class="pro-list grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                    <ul class="pro-list grid grid-cols-1 sm:grid-cols-2 gap-x-4">
                         <li>Sensores de levante e posição</li>
                         <li>Sensores de velocidade (GPS)</li>
                         <li>Sensores de rotação indutivos/efeito hall</li>
@@ -506,21 +514,21 @@
     </section>
 
     <!-- 6. Sementes Miúdas -->
-    <section id="sementes" class="py-16 md:py-24 bg-white overflow-hidden">
-        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <section id="sementes" class="py-12 sm:py-16 md:py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
                 <div class="w-full lg:w-1/2 relative reveal-right">
-                    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sementes Miúdas" class="rounded-xl shadow-premium img-clip-left w-full h-[400px] object-cover">
-                    <div class="absolute -bottom-6 -left-6 bg-brand-red text-white w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-lg border-4 border-white">
+                    <img src="images/Sementes miúdas.png" alt="Sementes Miúdas" class="rounded-xl shadow-premium img-clip-left w-full h-[300px] md:h-[400px] object-cover">
+                    <div class="absolute -bottom-6 -left-6 bg-brand-red text-white w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-3xl md:text-4xl shadow-lg border-4 border-white">
                         <i class="fa-solid fa-leaf"></i>
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2 reveal-left">
                     <div class="inline-block bg-brand-gray text-brand-black px-4 py-1 rounded shadow-sm text-sm font-bold mb-4 border border-gray-200">06. Família</div>
-                    <h3 class="text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Aplicação de Sementes Miúdas</h3>
-                    <p class="text-gray-600 mb-8 text-lg">Soluções exclusivas para plantio de pastagens, culturas de cobertura, consórcios agrícolas e distribuição delicada.</p>
+                    <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-black mb-4">Aplicação de Sementes Miúdas</h3>
+                    <p class="text-gray-600 mb-8 text-base md:text-lg">Soluções exclusivas para plantio de pastagens, culturas de cobertura, consórcios agrícolas e distribuição delicada.</p>
 
-                    <ul class="pro-list grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                    <ul class="pro-list grid grid-cols-1 sm:grid-cols-2 gap-x-4">
                         <li>Controle em taxa fixa e variável</li>
                         <li>Monitoramento da aplicação</li>
                         <li>Motores elétricos p/ acionamento de dosadores</li>
@@ -536,19 +544,19 @@
         </div>
     </section>
 
-    <!-- 7. Pecuária (Novo Pedido do Cliente) -->
+    <!-- 7. Pecuária -->
     <section id="pecuaria" class="py-16 md:py-24 bg-brand-dark text-white overflow-hidden relative">
         <div class="absolute inset-0 bg-brand-black opacity-90 z-0"></div>
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544385561-572fa82cb535?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-20 z-0 mix-blend-luminosity"></div>
 
-        <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                 <div class="w-full lg:w-1/2 reveal-left">
                     <div class="inline-block bg-brand-red text-white px-4 py-1 rounded shadow-sm text-sm font-bold mb-4">Novo Setor</div>
-                    <h3 class="text-3xl md:text-4xl font-extrabold mb-4">Pecuária de Corte e Leite</h3>
-                    <p class="text-gray-300 mb-8 text-lg">A Automasensor expande sua excelência tecnológica para o controle e automação nas fazendas pecuaristas, trazendo inovação para confinamentos, ordenhas e nutrição animal.</p>
+                    <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4">Pecuária de Corte e Leite</h3>
+                    <p class="text-gray-300 mb-8 text-base md:text-lg">A Automasensor expande sua excelência tecnológica para o controle e automação nas fazendas pecuaristas, trazendo inovação para confinamentos, ordenhas e nutrição animal.</p>
 
-                    <ul class="pro-list dark grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                    <ul class="pro-list dark grid grid-cols-1 sm:grid-cols-2 gap-x-4">
                         <li>Automação de misturadores de ração</li>
                         <li>Sensores de pesagem e fluxo</li>
                         <li>Controle eletrônico de distribuição</li>
@@ -558,31 +566,25 @@
                     </ul>
                 </div>
                 <div class="w-full lg:w-1/2 relative reveal-right">
-                    <!-- Video Embed Illusion -->
-                    <div class="relative rounded-xl overflow-hidden shadow-[0_0_40px_rgba(204,0,0,0.2)] border border-brand-red/30">
-                        <img src="https://images.unsplash.com/photo-1594732832278-abd644401426?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Pecuária Tecnológica" class="w-full h-[350px] object-cover">
-                        <div class="absolute inset-0 bg-black/40"></div>
-                        <div class="video-play-button">
-                            <i class="fa-solid fa-play ml-1"></i>
-                        </div>
+                    <div class="relative rounded-xl overflow-hidden border border-brand-red/30">
+                        <img src="images/Pecuária.png" alt="Pecuária Tecnológica" class="w-full h-[250px] md:h-[350px] object-cover">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="desenvolvimento" class="py-24 bg-white relative overflow-hidden border-b border-gray-100">
-        <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+    <section id="desenvolvimento" class="py-16 md:py-24 bg-white relative overflow-hidden border-b border-gray-100">
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="order-2 lg:order-1 relative reveal-left">
-                    <!-- Circuit Illustration placeholder -->
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="bg-brand-gray p-6 rounded-lg border border-gray-200">
                             <i class="fa-solid fa-layer-group text-3xl text-brand-red mb-4"></i>
                             <h4 class="font-bold text-brand-black mb-2">Projeto de Hardware (PCB)</h4>
                             <p class="text-sm text-gray-600">Desenvolvimento de placas de circuito impresso multicamadas, resistentes a intempéries e vibrações.</p>
                         </div>
-                        <div class="bg-brand-gray p-6 rounded-lg border border-gray-200 transform translate-y-8">
+                        <div class="bg-brand-gray p-6 rounded-lg border border-gray-200 sm:transform sm:translate-y-8">
                             <i class="fa-solid fa-code text-3xl text-brand-red mb-4"></i>
                             <h4 class="font-bold text-brand-black mb-2">Software Embarcado</h4>
                             <p class="text-sm text-gray-600">Programação de microcontroladores em C/C++, lógica de controle ISOBUS e interfaces IHM.</p>
@@ -592,7 +594,7 @@
                             <h4 class="font-bold text-brand-black mb-2">Chicotes Elétricos</h4>
                             <p class="text-sm text-gray-600">Manufatura de cabeamento selado com conectores automotivos de grau IP67/IP68.</p>
                         </div>
-                        <div class="bg-brand-gray p-6 rounded-lg border border-gray-200 transform translate-y-8">
+                        <div class="bg-brand-gray p-6 rounded-lg border border-gray-200 sm:transform sm:translate-y-8">
                             <i class="fa-solid fa-check-double text-3xl text-brand-red mb-4"></i>
                             <h4 class="font-bold text-brand-black mb-2">Testes e Validação</h4>
                             <p class="text-sm text-gray-600">Burn-in, testes de temperatura e validação em campo antes da produção em escala.</p>
@@ -602,13 +604,13 @@
                 <div class="order-1 lg:order-2 reveal-right">
                     <span class="text-brand-red font-bold uppercase tracking-widest text-sm mb-2 block">Parceria Estratégica</span>
                     <h2 class="text-3xl md:text-5xl font-extrabold text-brand-black mb-6 leading-tight">Desenvolvimento Personalizado <span class="text-brand-red">(OEM)</span></h2>
-                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                    <p class="text-gray-600 text-base md:text-lg mb-6 leading-relaxed">
                         Precisa de um projeto eletrônico exclusivo para a sua linha de montagem? Nossa equipe de engenharia atua como o seu departamento de tecnologia estendido.
                     </p>
-                    <p class="text-gray-600 text-lg mb-10 leading-relaxed">
+                    <p class="text-gray-600 text-base md:text-lg mb-10 leading-relaxed">
                         Entregamos uma solução <strong>"Turn-Key"</strong> completa para fabricantes de máquinas (OEMs), assumindo desde o rascunho da ideia, criação do protótipo, até a fabricação seriada das placas e componentes na nossa linha de montagem no Brasil.
                     </p>
-                    <a href="#contato" class="inline-flex items-center gap-2 bg-brand-black text-white hover:bg-brand-red px-8 py-4 rounded font-bold transition-colors duration-300 shadow-lg">
+                    <a href="#contato" class="inline-flex items-center justify-center w-full sm:w-auto gap-2 bg-brand-black text-white hover:bg-brand-red px-8 py-4 rounded font-bold transition-colors duration-300 shadow-lg">
                         Agendar Reunião com a Engenharia <i class="fa-solid fa-gear"></i>
                     </a>
                 </div>
@@ -616,52 +618,56 @@
         </div>
     </section>
 
-    <section id="clientes" class="py-20 bg-brand-gray border-b border-gray-200">
-        <div class="container mx-auto px-4 text-center reveal mb-10">
-            <h2 class="text-3xl font-extrabold text-brand-black mb-4">Players que confiam na nossa Tecnologia</h2>
-            <p class="text-gray-600">Fornecemos soluções embarcadas para as principais montadoras e grandes produtores do Brasil.</p>
+    <section id="clientes" class="py-16 md:py-20 bg-brand-gray border-b border-gray-200 overflow-hidden">
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8 text-center reveal mb-10">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-black mb-4">Players que confiam na nossa Tecnologia</h2>
+            <p class="text-gray-600 text-sm sm:text-base">Fornecemos soluções embarcadas para as principais montadoras e grandes produtores do Brasil.</p>
         </div>
 
-        <!-- Marquee de Logos -->
-        <div class="marquee-container py-8 bg-white border-y border-gray-200 reveal delay-200">
-            <div class="marquee-content flex items-center gap-16 px-8">
-                <!-- Logos - Grupo 1 -->
-                <div class="font-black text-3xl text-gray-300 hover:text-[#ed1c24] transition-colors duration-300 uppercase tracking-tighter cursor-pointer">KUHN</div>
-                <div class="font-black text-3xl text-gray-300 hover:text-[#dc2626] transition-colors duration-300 uppercase tracking-tighter cursor-pointer">SÃO JOSÉ INDUSTRIAL</div>
-                <div class="font-black text-3xl text-gray-300 hover:text-[#dc2626] transition-colors duration-300 uppercase tracking-tighter cursor-pointer">HORSCH</div>
-                <div class="font-black text-3xl text-gray-300 hover:text-[#ea580c] transition-colors duration-300 uppercase tracking-tighter cursor-pointer">RAIZON AGRITECH</div>
-                <div class="font-black text-3xl text-gray-300 hover:text-[#16a34a] transition-colors duration-300 uppercase tracking-tighter cursor-pointer">SEMEATO</div>
+        <!-- Marquee de Imagens (Logos Reais) -->
+        <div class="marquee-container py-8 bg-white border-y border-gray-200 reveal delay-200 w-full overflow-hidden">
+            <!-- Utilizamos flex com nowrap para enfileirar as imagens perfeitamente -->
+            <div class="marquee-content flex items-center gap-12 md:gap-20 px-8">
 
-                <div class="font-black text-3xl text-gray-300 hover:text-[#1e3a8a] transition-colors duration-300 uppercase tracking-tighter cursor-pointer">MARINI</div>
-                <div class="font-black text-3xl text-gray-300 hover:text-[#15803d] transition-colors duration-300 uppercase tracking-tighter cursor-pointer">CIMISA</div>
-                <div class="font-black text-3xl text-gray-300 hover:text-[#16a34a] transition-colors duration-300 uppercase tracking-tighter cursor-pointer">AGROSS</div>
-                <div class="font-black text-3xl text-gray-300 hover:text-[#2563eb] transition-colors duration-300 uppercase tracking-tighter cursor-pointer">ZS MÁQUINAS</div>
-                <div class="font-black text-3xl text-gray-300 hover:text-[#0369a1] transition-colors duration-300 uppercase tracking-tighter cursor-pointer">USIMILK</div>
-                <div class="font-black text-3xl text-gray-300 hover:text-[#dc2626] transition-colors duration-300 uppercase tracking-tighter cursor-pointer">HARAMAQ</div>
-                <div class="font-black text-3xl text-gray-300 hover:text-[#4d7c0f] transition-colors duration-300 uppercase tracking-tighter cursor-pointer">AGROCAMPO</div>
+                <!-- GRUPO 1 -->
+                <img src="images/Clientes/KUHN.png" alt="KUHN" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
+                <img src="images/Clientes/SaoJose.jpg" alt="São José Industrial" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
+                <img src="images/Clientes/horsch.png" alt="Horsch" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
+                <img src="images/Clientes/Raizon.png" alt="Raizon Agritech" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
+                <img src="images/Clientes/Semeato.jpg" alt="Semeato" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
 
-                <div class="font-black text-3xl text-gray-300 hover:text-[#15803d] transition-colors duration-300 uppercase tracking-tighter cursor-pointer">AGRO FIELD</div>
-                <div class="font-black text-3xl text-gray-300 hover:text-[#ea580c] transition-colors duration-300 uppercase tracking-tighter cursor-pointer">TECHHORSE</div>
-                <div class="font-black text-3xl text-gray-300 hover:text-[#4f46e5] transition-colors duration-300 uppercase tracking-tighter cursor-pointer">NIKOLA 369</div>
-            </div>
+                <img src="images/Clientes/Marini.png" alt="Marini" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
+                <img src="images/Clientes/logo-cimisa.png" alt="Cimisa" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
+                <img src="images/Clientes/agross.jpg" alt="Agross" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
+                <img src="images/Clientes/ZSMaquinas.png" alt="ZS Máquinas" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
+                <img src="images/Clientes/usimilk.png" alt="Usimilk" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
+
+                <img src="images/Clientes/clientes-haramaq-f.png" alt="Haramaq" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
+                <img src="images/Clientes/agrocampo.png" alt="AgroCampo" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
+                <img src="images/Clientes/agrofield.png" alt="Agro Field" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
+                <img src="images/Clientes/Techhorse.png" alt="TechHorse" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
+                <img src="images/Clientes/Incomagri-LOGO.png" alt="Incomagri" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
+                <img src="images/Clientes/nikola.png" alt="Nikola 369" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
+
+               </div>
         </div>
     </section>
 
-    <section id="sobre" class="py-24 bg-white relative">
-        <div class="container mx-auto px-4 md:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
+    <section id="sobre" class="py-16 md:py-24 bg-white relative">
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                 <div class="w-full lg:w-1/2 relative reveal-left">
                     <div class="absolute inset-0 bg-brand-red rounded transform -translate-x-4 translate-y-4"></div>
-                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profissional em eletrônica" class="rounded shadow-xl relative z-10 w-full object-cover h-[450px]">
+                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profissional em eletrônica" class="rounded shadow-xl relative z-10 w-full object-cover h-[350px] md:h-[450px]">
                 </div>
                 <div class="w-full lg:w-1/2 reveal-right">
                     <span class="text-brand-red font-bold uppercase tracking-widest text-sm mb-2 block">A Automasensor</span>
                     <h2 class="text-3xl md:text-5xl font-extrabold text-brand-black mb-6">Inovação e Robustez no Agronegócio</h2>
                     <div class="w-20 h-1 bg-brand-red mb-6"></div>
-                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
+                    <p class="text-gray-600 mb-6 leading-relaxed text-base md:text-lg">
                         Fundada com a visão estratégica de <strong class="text-brand-black">Ricardo Kadota</strong>, a Automasensor resolve o maior desafio do agronegócio moderno: a ponte entre o maquinário pesado (mecânica/hidráulica) e a inteligência de dados.
                     </p>
-                    <p class="text-gray-600 mb-8 leading-relaxed">
+                    <p class="text-gray-600 mb-8 leading-relaxed text-base md:text-lg">
                         Nossas placas e módulos são desenhados no Brasil para aguentar as condições mais extremas do clima e solo brasileiros (poeira, vibração intensa, calor e umidade). Oferecemos suporte rápido, reposição nacional e tecnologia que bate de frente com os maiores players globais.
                     </p>
                 </div>
@@ -669,55 +675,55 @@
         </div>
     </section>
 
-    <section id="contato" class="py-24 bg-brand-dark text-white relative">
+    <section id="contato" class="py-16 md:py-24 bg-brand-dark text-white relative">
         <div class="dark-tech-bg absolute inset-0 z-0"></div>
-        <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
             <div class="max-w-6xl mx-auto bg-brand-black rounded-lg shadow-2xl overflow-hidden flex flex-col md:flex-row border border-gray-800 reveal">
 
-                <div class="w-full md:w-2/5 bg-brand-red p-10 flex flex-col justify-between relative overflow-hidden">
+                <div class="w-full md:w-2/5 bg-brand-red p-8 md:p-10 flex flex-col justify-between relative overflow-hidden">
                     <div class="absolute inset-0 bg-black/10"></div>
                     <div class="relative z-10">
-                        <h3 class="text-3xl font-extrabold mb-2">Fale Conosco</h3>
-                        <p class="text-white/80 mb-8">Comercial, Suporte e Engenharia.</p>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold mb-2">Fale Conosco</h3>
+                        <p class="text-white/80 mb-8 text-sm sm:text-base">Comercial, Suporte e Engenharia.</p>
 
-                        <div class="space-y-8">
+                        <div class="space-y-6 md:space-y-8">
                             <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded bg-black/20 flex items-center justify-center shrink-0 border border-white/20">
-                                    <i class="fa-brands fa-whatsapp text-2xl text-white"></i>
+                                <div class="w-10 h-10 md:w-12 md:h-12 rounded bg-black/20 flex items-center justify-center shrink-0 border border-white/20">
+                                    <i class="fa-brands fa-whatsapp text-xl md:text-2xl text-white"></i>
                                 </div>
                                 <div>
-                                    <p class="text-sm text-white/70 uppercase tracking-wider font-bold">Atendimento Rápido</p>
-                                    <p class="font-medium text-xl">+55 (54) 99173-9188</p>
+                                    <p class="text-xs sm:text-sm text-white/70 uppercase tracking-wider font-bold">Atendimento Rápido</p>
+                                    <p class="font-medium text-lg md:text-xl">+55 (54) 99173-9188</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded bg-black/20 flex items-center justify-center shrink-0 border border-white/20">
-                                    <i class="fa-regular fa-envelope text-2xl text-white"></i>
+                                <div class="w-10 h-10 md:w-12 md:h-12 rounded bg-black/20 flex items-center justify-center shrink-0 border border-white/20">
+                                    <i class="fa-regular fa-envelope text-xl md:text-2xl text-white"></i>
                                 </div>
                                 <div>
-                                    <p class="text-sm text-white/70 uppercase tracking-wider font-bold">E-mail Corporativo</p>
-                                    <p class="font-medium text-lg">atendimento@automasensor.com.br</p>
+                                    <p class="text-xs sm:text-sm text-white/70 uppercase tracking-wider font-bold">E-mail Corporativo</p>
+                                    <p class="font-medium text-base md:text-lg break-all">atendimento@automasensor.com.br</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="w-full md:w-3/5 p-10 bg-brand-black">
+                <div class="w-full md:w-3/5 p-8 md:p-10 bg-brand-black">
                     <form action="#" method="POST" class="space-y-6" onsubmit="event.preventDefault(); alert('Formulário configurado! (Integração com Web3Forms/Formspree pendente no backend).');">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Nome Completo</label>
-                                <input type="text" class="w-full px-4 py-3 bg-gray-900 rounded border border-gray-700 focus:ring-2 focus:ring-brand-red focus:border-transparent outline-none text-white transition-all" required>
+                                <label class="block text-xs sm:text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Nome Completo</label>
+                                <input type="text" class="w-full px-4 py-3 bg-gray-900 rounded border border-gray-700 focus:ring-2 focus:ring-brand-red focus:border-transparent outline-none text-white transition-all text-sm sm:text-base" required>
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Telefone / WhatsApp</label>
-                                <input type="tel" class="w-full px-4 py-3 bg-gray-900 rounded border border-gray-700 focus:ring-2 focus:ring-brand-red focus:border-transparent outline-none text-white transition-all" required>
+                                <label class="block text-xs sm:text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Telefone / WhatsApp</label>
+                                <input type="tel" class="w-full px-4 py-3 bg-gray-900 rounded border border-gray-700 focus:ring-2 focus:ring-brand-red focus:border-transparent outline-none text-white transition-all text-sm sm:text-base" required>
                             </div>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Área de Interesse</label>
-                            <select class="w-full px-4 py-3 bg-gray-900 rounded border border-gray-700 focus:ring-2 focus:ring-brand-red focus:border-transparent outline-none text-white transition-all">
+                            <label class="block text-xs sm:text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Área de Interesse</label>
+                            <select class="w-full px-4 py-3 bg-gray-900 rounded border border-gray-700 focus:ring-2 focus:ring-brand-red focus:border-transparent outline-none text-white transition-all text-sm sm:text-base">
                                 <option>Cotação de Soluções</option>
                                 <option>Desenvolvimento OEM (Montadoras)</option>
                                 <option>Suporte Técnico</option>
@@ -725,10 +731,10 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Mensagem</label>
-                            <textarea rows="4" class="w-full px-4 py-3 bg-gray-900 rounded border border-gray-700 focus:ring-2 focus:ring-brand-red focus:border-transparent outline-none text-white resize-none transition-all" required></textarea>
+                            <label class="block text-xs sm:text-sm font-medium text-gray-400 mb-2 uppercase tracking-wide">Mensagem</label>
+                            <textarea rows="4" class="w-full px-4 py-3 bg-gray-900 rounded border border-gray-700 focus:ring-2 focus:ring-brand-red focus:border-transparent outline-none text-white resize-none transition-all text-sm sm:text-base" required></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-brand-red hover:bg-brand-darkred text-white font-bold py-4 rounded transition-colors flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(204,0,0,0.3)] hover:shadow-[0_0_30px_rgba(204,0,0,0.5)]">
+                        <button type="submit" class="w-full bg-brand-red hover:bg-brand-darkred text-white font-bold py-3.5 sm:py-4 rounded transition-colors flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(204,0,0,0.3)] hover:shadow-[0_0_30px_rgba(204,0,0,0.5)] text-sm sm:text-base">
                             Enviar Solicitação <i class="fa-solid fa-paper-plane"></i>
                         </button>
                     </form>
@@ -737,15 +743,14 @@
         </div>
     </section>
 
-    <footer class="bg-[#0a0a0a] text-gray-400 py-12 border-t border-gray-900">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer class="bg-[#0a0a0a] text-gray-400 py-10 md:py-12 border-t border-gray-900">
+        <div class="container mx-auto px-5 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-2">
-                <!-- Fundo branco adicionado à logo no rodapé para dar contraste -->
                 <div class="bg-white px-4 py-2 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <img src="images/Logo.png" alt="Automasensor" class="h-10 md:h-12 object-contain hover:scale-105 transition-transform duration-300">
+                    <img src="images/Logo.png" alt="Automasensor" class="h-8 md:h-12 object-contain hover:scale-105 transition-transform duration-300">
                 </div>
             </div>
-            <p class="text-sm text-center md:text-center">&copy; 2026 Automasensor. Todos os direitos reservados. <br />Desenvolvido por J. Caetano</p>
+            <p class="text-xs sm:text-sm text-center md:text-center leading-relaxed">&copy; 2026 Automasensor. Todos os direitos reservados. <br />Desenvolvido por J. Caetano</p>
             <div class="flex gap-4">
                 <a href="https://www.instagram.com/automasensor/" target="_blank" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
             </div>
@@ -753,13 +758,12 @@
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5554991739188?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20o%20departamento%20comercial%20da%20Automasensor." target="_blank" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:bg-[#20b858] hover:scale-110 transition-all duration-300 group">
-        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    <a href="https://wa.me/5554991739188?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20o%20departamento%20comercial%20da%20Automasensor." target="_blank" class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#25D366] text-white rounded-full shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:bg-[#20b858] hover:scale-110 transition-all duration-300 group">
+        <i class="fa-brands fa-whatsapp text-2xl sm:text-3xl"></i>
 
         <!-- Tooltip (Balão de texto) -->
-        <span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-4 py-2 bg-brand-black text-white text-sm font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-lg pointer-events-none">
+        <span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-4 py-2 bg-brand-black text-white text-xs sm:text-sm font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-lg pointer-events-none hidden sm:block">
             Fale com nosso Comercial
-            <!-- Setinha do balão -->
             <span class="absolute top-1/2 -right-1.5 -translate-y-1/2 border-4 border-transparent border-l-brand-black"></span>
         </span>
     </a>
@@ -767,14 +771,14 @@
     <!-- INÍCIO DO HTML DA LGPD -->
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="hidden fixed bottom-0 left-0 w-full bg-white shadow-[0_-10px_30px_rgba(0,0,0,0.1)] z-[100] transform translate-y-full transition-transform duration-500 border-t border-gray-200">
-        <div class="container mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="text-[14px] text-[#334155] md:w-2/3 leading-relaxed">
-                <strong class="text-[#0f172a] block mb-1 text-[16px]">Aviso de Cookies e Privacidade</strong>
+        <div class="container mx-auto px-5 sm:px-6 py-4 sm:py-5 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="text-xs sm:text-[14px] text-[#334155] md:w-2/3 leading-relaxed text-center md:text-left">
+                <strong class="text-[#0f172a] block mb-1 text-sm sm:text-[16px]">Aviso de Cookies e Privacidade</strong>
                 Utilizamos cookies para melhorar sua experiência em nosso site, personalizar conteúdo e analisar nosso tráfego. Ao continuar navegando, você concorda com nossa Política de Privacidade.
             </div>
-            <div class="flex items-center gap-4 shrink-0 w-full md:w-auto justify-end">
-                <button id="btn-cookie-config" class="text-[14px] font-semibold text-[#64748b] hover:text-[#0f172a] transition-colors underline decoration-2 underline-offset-4">Configurações</button>
-                <button id="btn-cookie-accept" class="bg-[#0f172a] hover:bg-[#1e293b] text-white text-[14px] font-bold px-8 py-3 rounded-lg transition-colors shadow-md">Aceitar Todos</button>
+            <div class="flex items-center gap-4 shrink-0 w-full md:w-auto justify-center md:justify-end mt-2 md:mt-0">
+                <button id="btn-cookie-config" class="text-xs sm:text-[14px] font-semibold text-[#64748b] hover:text-[#0f172a] transition-colors underline decoration-2 underline-offset-4 p-2">Configurações</button>
+                <button id="btn-cookie-accept" class="bg-[#0f172a] hover:bg-[#1e293b] text-white text-xs sm:text-[14px] font-bold px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg transition-colors shadow-md w-full sm:w-auto">Aceitar Todos</button>
             </div>
         </div>
     </div>
@@ -783,26 +787,26 @@
     <div id="lgpd-modal" class="hidden fixed inset-0 z-[110] bg-[#0f172a]/70 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
         <div id="lgpd-modal-inner" class="bg-white w-full max-w-2xl rounded-xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 max-h-[90vh] flex flex-col relative">
 
-            <!-- Botão Fechar (X superior direito) -->
-            <button id="btn-close-modal" class="absolute top-5 right-5 text-gray-400 hover:text-gray-700 text-2xl transition-colors w-8 h-8 flex items-center justify-center rounded-md hover:bg-gray-100 z-10">
+            <!-- Botão Fechar -->
+            <button id="btn-close-modal" class="absolute top-4 sm:top-5 right-4 sm:right-5 text-gray-400 hover:text-gray-700 text-xl sm:text-2xl transition-colors w-8 h-8 flex items-center justify-center rounded-md hover:bg-gray-100 z-10">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
             <!-- Conteúdo do Modal (Scrollable) -->
-            <div class="p-8 overflow-y-auto text-[#475569] text-[15px] space-y-6 flex-1 pr-10">
-                <h3 class="text-[24px] font-extrabold text-[#0f172a] mb-2 pr-8">Política de Privacidade</h3>
+            <div class="p-6 sm:p-8 overflow-y-auto text-[#475569] text-xs sm:text-[15px] space-y-5 sm:space-y-6 flex-1 pr-6 sm:pr-10">
+                <h3 class="text-xl sm:text-[24px] font-extrabold text-[#0f172a] mb-2 pr-8">Política de Privacidade</h3>
 
                 <p class="leading-relaxed">A Automasensor valoriza a privacidade de seus usuários. Esta Política de Privacidade descreve como coletamos, usamos e protegemos suas informações pessoais.</p>
 
                 <div>
-                    <h4 class="font-bold text-[#0f172a] text-[16px] mb-2">1. Coleta de Dados</h4>
+                    <h4 class="font-bold text-[#0f172a] text-sm sm:text-[16px] mb-2">1. Coleta de Dados</h4>
                     <p class="leading-relaxed">Coletamos apenas as informações necessárias para o funcionamento do site e para entrar em contato com você, como nome, e-mail e telefone, quando fornecidos voluntariamente através de nossos formulários.</p>
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-[#0f172a] text-[16px] mb-2">2. Uso das Informações</h4>
+                    <h4 class="font-bold text-[#0f172a] text-sm sm:text-[16px] mb-2">2. Uso das Informações</h4>
                     <p class="leading-relaxed mb-2">As informações coletadas são utilizadas exclusivamente para:</p>
-                    <ul class="list-disc pl-6 space-y-1.5 marker:text-gray-400">
+                    <ul class="list-disc pl-5 sm:pl-6 space-y-1 sm:space-y-1.5 marker:text-gray-400">
                         <li>Responder a solicitações de orçamento e contato;</li>
                         <li>Melhorar a experiência do usuário em nosso site;</li>
                         <li>Fins estatísticos anônimos.</li>
@@ -810,22 +814,22 @@
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-[#0f172a] text-[16px] mb-2">3. Cookies</h4>
+                    <h4 class="font-bold text-[#0f172a] text-sm sm:text-[16px] mb-2">3. Cookies</h4>
                     <p class="leading-relaxed">Utilizamos cookies para armazenar preferências básicas, como a aceitação desta política. Você pode desativar os cookies nas configurações do seu navegador.</p>
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-[#0f172a] text-[16px] mb-2">4. Contato</h4>
-                    <p class="leading-relaxed">
+                    <h4 class="font-bold text-[#0f172a] text-sm sm:text-[16px] mb-2">4. Contato</h4>
+                    <p class="leading-relaxed break-all">
                         Para questões relacionadas à privacidade, entre em contato pelo e-mail:<br>
-                        <a href="mailto:atendimento@automasensor.com.br" class="text-[#0f172a] font-bold hover:underline">atendimento@automasensor.com.br.com.br</a>.
+                        <a href="mailto:atendimento@automasensor.com.br" class="text-[#0f172a] font-bold hover:underline">atendimento@automasensor.com.br</a>.
                     </p>
                 </div>
             </div>
 
             <!-- Footer do Modal -->
-            <div class="p-6 border-t border-gray-100 bg-white flex justify-end">
-                <button id="btn-modal-entendi" class="bg-[#0f172a] hover:bg-[#1e293b] text-white font-bold text-[15px] py-3 px-10 rounded-lg transition-colors shadow-lg">
+            <div class="p-4 sm:p-6 border-t border-gray-100 bg-white flex justify-end">
+                <button id="btn-modal-entendi" class="bg-[#0f172a] hover:bg-[#1e293b] text-white font-bold text-sm sm:text-[15px] py-2.5 sm:py-3 px-8 sm:px-10 rounded-lg transition-colors shadow-lg w-full sm:w-auto">
                     Entendi
                 </button>
             </div>
@@ -863,7 +867,6 @@
                 navbar.classList.remove('text-white', 'py-4');
                 navbar.classList.add('py-2');
 
-                // Reduz a logo quando rola a tela
                 if (logo) {
                     logo.classList.remove('lg:h-[90px]', 'md:h-24', 'sm:h-20', 'h-16');
                     logo.classList.add('h-10', 'md:h-12');
@@ -873,7 +876,7 @@
                 navbar.classList.add('text-white', 'py-4');
                 navbar.classList.remove('py-2');
 
-                // Aumenta a logo quando está no topo
+                // Restaura o tamanho da logo quando volta pro topo
                 if (logo) {
                     logo.classList.add('lg:h-[90px]', 'md:h-24', 'sm:h-20', 'h-16');
                     logo.classList.remove('h-10', 'md:h-12');
@@ -886,8 +889,8 @@
             const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
 
             const revealOptions = {
-                threshold: 0.15,
-                rootMargin: "0px 0px -50px 0px"
+                threshold: 0.05, // Menor limite: carrega levemente antes para não dar tela branca no scroll rápido
+                rootMargin: "0px 0px -20px 0px"
             };
 
             const revealOnScroll = new IntersectionObserver(function (entries, observer) {
@@ -905,13 +908,18 @@
                 revealOnScroll.observe(reveal);
             });
 
-            // Ativando o Efeito 3D Tilt super realista nas imagens
+            // Ativando o Efeito 3D Tilt super realista (Agora com suporte a Giroscópio no Celular)
             if (typeof VanillaTilt !== 'undefined') {
                 VanillaTilt.init(document.querySelectorAll(".shadow-premium, .tilt-element"), {
-                    max: 8,             // Grau de inclinação
-                    speed: 400,         // Velocidade da animação
-                    glare: true,        // Efeito de reflexo de luz
-                    "max-glare": 0.25,  // Intensidade da luz
+                    max: 6,             // Inclinação mais suave para melhor renderização
+                    speed: 600,         // Velocidade da transição de luz mais branda
+                    glare: true,        // Efeito de reflexo de luz ativado
+                    "max-glare": 0.20,  // Luz moderada
+                    gyroscope: true,    // ATIVA A MÁGICA: Reage ao movimentar o celular na mão!
+                    gyroscopeMinAngleX: -45,
+                    gyroscopeMaxAngleX: 45,
+                    gyroscopeMinAngleY: -45,
+                    gyroscopeMaxAngleY: 45,
                 });
             }
         });
@@ -927,34 +935,28 @@
             const btnCloseModal = document.getElementById('btn-close-modal');
             const btnModalEntendi = document.getElementById('btn-modal-entendi');
 
-            // PREVENÇÃO DE ERRO: Garante que o HTML existe antes de rodar o código
             if (!cookieBanner || !btnAccept) return;
 
-            // Verifica se o usuário já aceitou os cookies anteriormente
             if (!localStorage.getItem('automasensor_lgpd_consent')) {
-                // Remove a classe hidden e faz o banner deslizar para cima após 1 segundo
                 cookieBanner.classList.remove('hidden');
                 setTimeout(() => {
                     cookieBanner.classList.remove('translate-y-full');
                 }, 1000);
             }
 
-            // Função para fechar o banner e salvar consentimento
             const acceptCookies = () => {
                 localStorage.setItem('automasensor_lgpd_consent', 'accepted');
                 cookieBanner.classList.add('translate-y-full');
                 setTimeout(() => {
                     cookieBanner.classList.add('hidden');
-                }, 500); // Aguarda a animação terminar
+                }, 500);
             };
 
-            // Funções de Controle do Modal
             const openModal = () => {
                 lgpdModal.classList.remove('hidden');
                 lgpdModal.classList.add('flex');
-                document.body.classList.add('modal-open');
+                document.body.style.overflow = 'hidden'; // Evita scroll do fundo
 
-                // Animação de entrada
                 requestAnimationFrame(() => {
                     lgpdModal.classList.remove('opacity-0');
                     lgpdModalInner.classList.remove('scale-95');
@@ -963,7 +965,6 @@
             };
 
             const closeModal = () => {
-                // Animação de saída
                 lgpdModal.classList.add('opacity-0');
                 lgpdModalInner.classList.remove('scale-100');
                 lgpdModalInner.classList.add('scale-95');
@@ -971,27 +972,21 @@
                 setTimeout(() => {
                     lgpdModal.classList.add('hidden');
                     lgpdModal.classList.remove('flex');
-                    document.body.classList.remove('modal-open');
+                    document.body.style.overflow = ''; // Devolve scroll do fundo
                 }, 300);
             };
 
-            // Event Listeners
             btnAccept.addEventListener('click', acceptCookies);
-
             btnConfig.addEventListener('click', openModal);
             btnCloseModal.addEventListener('click', closeModal);
 
-            // O botão "Entendi" do modal fecha o modal e aceita os cookies
             btnModalEntendi.addEventListener('click', () => {
                 closeModal();
                 acceptCookies();
             });
 
-            // Fechar modal ao clicar fora da caixa branca
             lgpdModal.addEventListener('click', (e) => {
-                if (e.target === lgpdModal) {
-                    closeModal();
-                }
+                if (e.target === lgpdModal) closeModal();
             });
         });
     </script>

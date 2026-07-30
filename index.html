@@ -574,17 +574,18 @@
         </div>
     </section>
 
-    <section id="desenvolvimento" class="py-16 md:py-24 bg-white relative overflow-hidden border-b border-gray-100">
-        <div class="container mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="desenvolvimento" class="py-24 bg-white relative overflow-hidden border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-16">
                 <div class="order-2 lg:order-1 relative reveal-left">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Circuit Illustration placeholder -->
+                    <div class="grid grid-cols-2 gap-4">
                         <div class="bg-brand-gray p-6 rounded-lg border border-gray-200">
                             <i class="fa-solid fa-layer-group text-3xl text-brand-red mb-4"></i>
                             <h4 class="font-bold text-brand-black mb-2">Projeto de Hardware (PCB)</h4>
                             <p class="text-sm text-gray-600">Desenvolvimento de placas de circuito impresso multicamadas, resistentes a intempéries e vibrações.</p>
                         </div>
-                        <div class="bg-brand-gray p-6 rounded-lg border border-gray-200 sm:transform sm:translate-y-8">
+                        <div class="bg-brand-gray p-6 rounded-lg border border-gray-200 transform translate-y-8">
                             <i class="fa-solid fa-code text-3xl text-brand-red mb-4"></i>
                             <h4 class="font-bold text-brand-black mb-2">Software Embarcado</h4>
                             <p class="text-sm text-gray-600">Programação de microcontroladores em C/C++, lógica de controle ISOBUS e interfaces IHM.</p>
@@ -594,7 +595,7 @@
                             <h4 class="font-bold text-brand-black mb-2">Chicotes Elétricos</h4>
                             <p class="text-sm text-gray-600">Manufatura de cabeamento selado com conectores automotivos de grau IP67/IP68.</p>
                         </div>
-                        <div class="bg-brand-gray p-6 rounded-lg border border-gray-200 sm:transform sm:translate-y-8">
+                        <div class="bg-brand-gray p-6 rounded-lg border border-gray-200 transform translate-y-8">
                             <i class="fa-solid fa-check-double text-3xl text-brand-red mb-4"></i>
                             <h4 class="font-bold text-brand-black mb-2">Testes e Validação</h4>
                             <p class="text-sm text-gray-600">Burn-in, testes de temperatura e validação em campo antes da produção em escala.</p>
@@ -604,15 +605,66 @@
                 <div class="order-1 lg:order-2 reveal-right">
                     <span class="text-brand-red font-bold uppercase tracking-widest text-sm mb-2 block">Parceria Estratégica</span>
                     <h2 class="text-3xl md:text-5xl font-extrabold text-brand-black mb-6 leading-tight">Desenvolvimento Personalizado <span class="text-brand-red">(OEM)</span></h2>
-                    <p class="text-gray-600 text-base md:text-lg mb-6 leading-relaxed">
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
                         Precisa de um projeto eletrônico exclusivo para a sua linha de montagem? Nossa equipe de engenharia atua como o seu departamento de tecnologia estendido.
                     </p>
-                    <p class="text-gray-600 text-base md:text-lg mb-10 leading-relaxed">
+                    <p class="text-gray-600 text-lg mb-10 leading-relaxed">
                         Entregamos uma solução <strong>"Turn-Key"</strong> completa para fabricantes de máquinas (OEMs), assumindo desde o rascunho da ideia, criação do protótipo, até a fabricação seriada das placas e componentes na nossa linha de montagem no Brasil.
                     </p>
-                    <a href="#contato" class="inline-flex items-center justify-center w-full sm:w-auto gap-2 bg-brand-black text-white hover:bg-brand-red px-8 py-4 rounded font-bold transition-colors duration-300 shadow-lg">
+                    <a href="#contato" class="inline-flex items-center gap-2 bg-brand-black text-white hover:bg-brand-red px-8 py-4 rounded font-bold transition-colors duration-300 shadow-lg">
                         Agendar Reunião com a Engenharia <i class="fa-solid fa-gear"></i>
                     </a>
+                </div>
+            </div>
+
+            <!-- Badges de Tecnologia e Conectividade -->
+            <div class="pt-10 border-t border-gray-100 reveal">
+                <p class="text-center text-xs font-bold uppercase tracking-widest text-brand-red mb-8">Conectividade & Comunicação Integrada</p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 text-center">
+                    <!-- Cloud -->
+                    <div class="p-5 rounded-xl bg-brand-gray border border-gray-200/80 hover:border-brand-red/40 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center group">
+                        <div class="w-12 h-12 rounded-full bg-white text-brand-red flex items-center justify-center text-xl mb-3 shadow-sm group-hover:bg-brand-red group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <span class="font-extrabold text-brand-black text-base">Cloud</span>
+                        <span class="text-xs text-gray-500 mt-1">Nuvem & Servidores</span>
+                    </div>
+
+                    <!-- IoT -->
+                    <div class="p-5 rounded-xl bg-brand-gray border border-gray-200/80 hover:border-brand-red/40 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center group">
+                        <div class="w-12 h-12 rounded-full bg-white text-brand-red flex items-center justify-center text-xl mb-3 shadow-sm group-hover:bg-brand-red group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-wifi"></i>
+                        </div>
+                        <span class="font-extrabold text-brand-black text-base">IoT</span>
+                        <span class="text-xs text-gray-500 mt-1">Internet of Things</span>
+                    </div>
+
+                    <!-- M2M -->
+                    <div class="p-5 rounded-xl bg-brand-gray border border-gray-200/80 hover:border-brand-red/40 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center group">
+                        <div class="w-12 h-12 rounded-full bg-white text-brand-red flex items-center justify-center text-xl mb-3 shadow-sm group-hover:bg-brand-red group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <span class="font-extrabold text-brand-black text-base">M2M</span>
+                        <span class="text-xs text-gray-500 mt-1">Machine to Machine</span>
+                    </div>
+
+                    <!-- 5G -->
+                    <div class="p-5 rounded-xl bg-brand-gray border border-gray-200/80 hover:border-brand-red/40 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center group">
+                        <div class="w-12 h-12 rounded-full bg-white text-brand-red flex items-center justify-center text-xl mb-3 shadow-sm group-hover:bg-brand-red group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-tower-cell"></i>
+                        </div>
+                        <span class="font-extrabold text-brand-black text-base">5G</span>
+                        <span class="text-xs text-gray-500 mt-1">Redes Terrestres</span>
+                    </div>
+
+                    <!-- NTN -->
+                    <div class="p-5 rounded-xl bg-brand-gray border border-gray-200/80 hover:border-brand-red/40 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center group col-span-2 sm:col-span-1">
+                        <div class="w-12 h-12 rounded-full bg-white text-brand-red flex items-center justify-center text-xl mb-3 shadow-sm group-hover:bg-brand-red group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid fa-satellite"></i>
+                        </div>
+                        <span class="font-extrabold text-brand-black text-base">NTN</span>
+                        <span class="text-xs text-gray-500 mt-1">Redes Satelitais</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -649,7 +701,7 @@
                 <img src="images/Clientes/Incomagri-LOGO.png" alt="Incomagri" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
                 <img src="images/Clientes/nikola.png" alt="Nikola 369" class="h-10 sm:h-12 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 cursor-pointer transition-all duration-500" onerror="this.style.display='none'">
 
-               </div>
+            </div>
         </div>
     </section>
 
@@ -750,7 +802,7 @@
                     <img src="images/Logo.png" alt="Automasensor" class="h-8 md:h-12 object-contain hover:scale-105 transition-transform duration-300">
                 </div>
             </div>
-            <p class="text-xs sm:text-sm text-center md:text-center leading-relaxed">&copy; 2026 Automasensor. Todos os direitos reservados. <br />Desenvolvido por J. Caetano</p>
+            <p class="text-xs sm:text-sm text-center md:text-center leading-relaxed">&copy; 2026 Automasensor. Todos os direitos reservados. <br /><br />Desenvolvido por J. Caetano</p>
             <div class="flex gap-4">
                 <a href="https://www.instagram.com/automasensor/" target="_blank" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
             </div>

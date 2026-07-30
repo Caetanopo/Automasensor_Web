@@ -53,12 +53,18 @@
             color: #333333;
         }
 
-        /* Premium Backgrounds */
+        /* Premium Backgrounds com correção para iPhone (iOS Safari) */
         .hero-bg {
-            background-image: linear-gradient(to right, rgba(17, 17, 17, 0.9) 0%, rgba(17, 17, 17, 0.6) 100%), url('images/HOME.png');
+            background-image: linear-gradient(to right, rgba(17, 17, 17, 0.85) 0%, rgba(17, 17, 17, 0.55) 100%), url('images/HOME.png');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+        }
+
+        /* Efeito fixo (parallax) apenas para desktops/telas grandes, evitando o bug do iOS */
+        @media (min-width: 1024px) {
+            .hero-bg {
+                background-attachment: fixed;
+            }
         }
 
         .dark-tech-bg {
@@ -208,14 +214,23 @@
             width: 100%;
         }
 
+        /* Client Marquee */
         .marquee-content {
             display: inline-flex;
-            animation: marquee 35s linear infinite;
+            /* Velocidade mais rápida para mobile (padrão 15s) */
+            animation: marquee 15s linear infinite;
         }
 
-            .marquee-content:hover {
-                animation-play-state: paused;
+        /* Volta para a velocidade lenta original apenas no Desktop */
+        @media (min-width: 768px) {
+            .marquee-content {
+                animation: marquee 35s linear infinite;
             }
+        }
+
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
 
         @keyframes marquee {
             0% {

@@ -766,6 +766,76 @@
         </span>
     </a>
 
+    <!-- INÍCIO DO HTML DA LGPD -->
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="hidden fixed bottom-0 left-0 w-full bg-white shadow-[0_-4px_20px_rgba(0,0,0,0.1)] z-[100] transform translate-y-full transition-transform duration-500">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="text-sm text-gray-600 md:w-2/3">
+                <strong class="text-brand-black block mb-1">Aviso de Cookies e Privacidade</strong>
+                Utilizamos cookies para melhorar sua experiência em nosso site, personalizar conteúdo e analisar nosso tráfego. Ao continuar navegando, você concorda com nossa Política de Privacidade.
+            </div>
+            <div class="flex items-center gap-3 shrink-0">
+                <button id="btn-cookie-config" class="text-sm font-semibold text-gray-500 hover:text-brand-red transition-colors underline">Configurações</button>
+                <button id="btn-cookie-accept" class="bg-brand-red hover:bg-brand-darkred text-white text-sm font-bold px-6 py-2.5 rounded transition-colors shadow-md">Aceitar Todos</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Política de Privacidade (LGPD) -->
+    <div id="lgpd-modal" class="hidden fixed inset-0 z-[110] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div id="lgpd-modal-inner" class="bg-white w-full max-w-2xl rounded-xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 max-h-[90vh] flex flex-col">
+
+            <!-- Header do Modal -->
+            <div class="flex justify-between items-center p-6 border-b border-gray-100">
+                <h3 class="text-2xl font-bold text-brand-black">Política de Privacidade</h3>
+                <button id="btn-close-modal" class="text-gray-400 hover:text-brand-red text-xl transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Conteúdo do Modal (Scrollable) -->
+            <div class="p-6 overflow-y-auto text-gray-600 text-sm space-y-5 flex-1">
+                <p>A <strong>Automasensor</strong> valoriza a privacidade de seus usuários. Esta Política de Privacidade descreve como coletamos, usamos e protegemos suas informações pessoais.</p>
+
+                <div>
+                    <h4 class="font-bold text-brand-black text-base mb-2">1. Coleta de Dados</h4>
+                    <p>Coletamos apenas as informações necessárias para o funcionamento do site e para entrar em contato com você, como nome, e-mail e telefone, quando fornecidos voluntariamente através de nossos formulários.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-brand-black text-base mb-2">2. Uso das Informações</h4>
+                    <p>As informações coletadas são utilizadas exclusivamente para:</p>
+                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                        <li>Responder a solicitações de orçamento e contato;</li>
+                        <li>Melhorar a experiência do usuário em nosso site;</li>
+                        <li>Fins estatísticos anônimos.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-brand-black text-base mb-2">3. Cookies</h4>
+                    <p>Utilizamos cookies para armazenar preferências básicas, como a aceitação desta política. Você pode desativar os cookies nas configurações do seu navegador.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-brand-black text-base mb-2">4. Contato</h4>
+                    <p>
+                        Para questões relacionadas à privacidade, entre em contato pelo e-mail:<br>
+                        <a href="mailto:contato@automasensor.com.br" class="text-brand-red font-semibold hover:underline">contato@automasensor.com.br</a>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Footer do Modal -->
+            <div class="p-6 border-t border-gray-100 bg-gray-50 flex justify-end">
+                <button id="btn-modal-entendi" class="bg-[#111111] hover:bg-brand-red text-white font-bold py-2.5 px-8 rounded transition-colors shadow-md">
+                    Entendi
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- FIM DO HTML DA LGPD -->
+
     <script>
         // Menu Mobile & Nav Scroll Effect
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -847,6 +917,85 @@
                     "max-glare": 0.25,  // Intensidade da luz
                 });
             }
+        });
+
+        // LGPD Cookie Consent Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const cookieBanner = document.getElementById('cookie-banner');
+            const btnAccept = document.getElementById('btn-cookie-accept');
+            const btnConfig = document.getElementById('btn-cookie-config');
+
+            const lgpdModal = document.getElementById('lgpd-modal');
+            const lgpdModalInner = document.getElementById('lgpd-modal-inner');
+            const btnCloseModal = document.getElementById('btn-close-modal');
+            const btnModalEntendi = document.getElementById('btn-modal-entendi');
+
+            // PREVENÇÃO DE ERRO: Garante que o HTML existe antes de rodar o código
+            if (!cookieBanner || !btnAccept) return;
+
+            // Verifica se o usuário já aceitou os cookies anteriormente
+            if (!localStorage.getItem('automasensor_lgpd_consent')) {
+                // Remove a classe hidden e faz o banner deslizar para cima após 1 segundo
+                cookieBanner.classList.remove('hidden');
+                setTimeout(() => {
+                    cookieBanner.classList.remove('translate-y-full');
+                }, 1000);
+            }
+
+            // Função para fechar o banner e salvar consentimento
+            const acceptCookies = () => {
+                localStorage.setItem('automasensor_lgpd_consent', 'accepted');
+                cookieBanner.classList.add('translate-y-full');
+                setTimeout(() => {
+                    cookieBanner.classList.add('hidden');
+                }, 500); // Aguarda a animação terminar
+            };
+
+            // Funções de Controle do Modal
+            const openModal = () => {
+                lgpdModal.classList.remove('hidden');
+                lgpdModal.classList.add('flex');
+                document.body.classList.add('modal-open');
+
+                // Animação de entrada
+                requestAnimationFrame(() => {
+                    lgpdModal.classList.remove('opacity-0');
+                    lgpdModalInner.classList.remove('scale-95');
+                    lgpdModalInner.classList.add('scale-100');
+                });
+            };
+
+            const closeModal = () => {
+                // Animação de saída
+                lgpdModal.classList.add('opacity-0');
+                lgpdModalInner.classList.remove('scale-100');
+                lgpdModalInner.classList.add('scale-95');
+
+                setTimeout(() => {
+                    lgpdModal.classList.add('hidden');
+                    lgpdModal.classList.remove('flex');
+                    document.body.classList.remove('modal-open');
+                }, 300);
+            };
+
+            // Event Listeners
+            btnAccept.addEventListener('click', acceptCookies);
+
+            btnConfig.addEventListener('click', openModal);
+            btnCloseModal.addEventListener('click', closeModal);
+
+            // O botão "Entendi" do modal fecha o modal e aceita os cookies
+            btnModalEntendi.addEventListener('click', () => {
+                closeModal();
+                acceptCookies();
+            });
+
+            // Fechar modal ao clicar fora da caixa branca
+            lgpdModal.addEventListener('click', (e) => {
+                if (e.target === lgpdModal) {
+                    closeModal();
+                }
+            });
         });
     </script>
 </body>
